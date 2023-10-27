@@ -1,0 +1,14 @@
+{
+  "name": "sistema_certificados",
+  "version": "1.0.0",
+  "description": "Sistema de certificados em NodeJs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Grupo 3",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
