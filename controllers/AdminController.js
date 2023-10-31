@@ -20,7 +20,7 @@ const getAdminById = async (req, res) => {
     }
     res.json(admin);
   } catch (error) {
-    res.status(500).json({ error: 'Erro ao buscar admin' });
+    res.status(500).json({ error: 'Erro ao buscar Admin' });
   }
 };
 
@@ -30,19 +30,18 @@ const updateAdmin = async (req, res) => {
     const adminId = req.params.id;
     const updatedAdminData = req.body;
 
-    const admin = await Admin.findByPk(adminId); // Encontre o admin pelo ID
+    const admin = await Admin.findByPk(adminId); 
 
     if (!admin) {
       return res.status(404).json({ error: 'Admin não encontrado' });
     }
-    await admin.update(updatedAdminData); // Atualize os dados do admin com os novos dados
-
-    const updatedAdmin = await Admin.findByPk(adminId); // Busque o admin atualizado
+    await admin.update(updatedAdminData); 
+    const updatedAdmin = await Admin.findByPk(adminId); 
 
     res.json(updatedAdmin);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Erro ao atualizar admin' });
+    res.status(500).json({ error: 'Erro ao atualizar Admin' });
   }
 };
 
@@ -56,12 +55,12 @@ const deleteAdmin = async (req, res) => {
       return res.status(404).json({ error: 'Admin não encontrado' });
     }
 
-    await admin.destroy(); // Deleta o admin
+    await admin.destroy(); 
 
     res.json({ message: 'Admin deletado com sucesso' });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Erro ao deletar admin' });
+    res.status(500).json({ error: 'Erro ao deletar Admin' });
   }
 };
 
@@ -71,7 +70,7 @@ const listAdmins = async (req, res) => {
     const admins = await Admin.findAll();
     res.json(admins);
   } catch (error) {
-    res.status(500).json({ error: 'Erro ao listar os admins' });
+    res.status(500).json({ error: 'Erro ao listar os Admins' });
   }
 };
 

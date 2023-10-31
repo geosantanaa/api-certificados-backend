@@ -81,7 +81,7 @@ const listInstituicoes = async (req, res) => {
     });
     res.json(instituicoes);
   } catch (error) {
-    res.status(500).json({ error: 'Erro ao listar os Instituicoes' });
+    res.status(500).json({ error: 'Erro ao listar os Instituições' });
   }
 };
 
