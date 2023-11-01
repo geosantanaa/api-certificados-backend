@@ -1,24 +1,19 @@
-const { Sequelize } = require('sequelize')
+const { Sequelize } = require('sequelize');
+const dotenv = require('dotenv');
 
-const sequelize = new Sequelize('sistema_certificado', 'root', 'QTU123v!', {
-    host: 'localhost',
-    dialect: 'mysql'
-})
+dotenv.config();
 
+const { DB_HOST, DB_USER, DB_PASSWORD, DB_NAME } = process.env;
 
-try{
-    sequelize.authenticate()
-    console.log('Conexão com o DB estabelecida com sucesso!')
-}catch(err){
-    console.log(`Não foi possivél concluir a conexão eo DB, ${err}`)
-}  
-  // checando sicronização do model com o banco de dados
-  sequelize.sync()
-    .then(() => {
-      console.log('Tabelas sincronizadas com sucesso!');
-    })
-    .catch((err) => {
-      console.log(`Erro ao sincronizar as tabelas, ${err}`);
-    });
+const sequelize = new Sequelize(DB_HOST, {
+  dialect: 'postgres',
+});
 
-module.exports = sequelize
+try {
+  sequelize.authenticate();
+  console.log('Conexão com o DB estabelecida com sucesso!');
+} catch (err) {
+  console.error(`Não foi possível concluir a conexão com o DB: ${err}`);
+}
+
+module.exports = sequelize;

@@ -11,6 +11,8 @@ const createAdmin = async (req, res) => {
   }
 };
 
+
+
 // Pegar Admin por ID
 const getAdminById = async (req, res) => {
   try {

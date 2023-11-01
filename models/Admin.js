@@ -10,6 +10,7 @@ const Admin = db.define('Admin', {
     type: DataTypes.STRING,
     allowNull: false
   }
+  
 });
 
 module.exports = Admin;
